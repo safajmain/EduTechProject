@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Project - Weather & Clock</title>
+  <link rel="stylesheet" href="style.css" />
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Header</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+ 
+
+   </style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="images/logo.png" alt="Logo" />
+  </div>
+
+  <!-- أيقونة الشحطات -->
+  <div class="menu-icon" id="menu-icon">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- روابط التنقل -->
+  <nav class="nav-links" id="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Courses</a>
+    <a href="#">Contact</a>
+    <a href="#">FAQ</a>
+
+    <!-- أيقونة الوضع داخل القائمة (للموبايل فقط) -->
+    <div class="icon mobile-icon">
+      <i id="mode-toggle" class="fas fa-sun"></i>
+    </div>
+  </nav>
+
+  <!-- أيقونة الوضع خارج القائمة (لابتوب فقط) -->
+  <div class="icon desktop-icon">
+    <i id="mode-toggle" class="fas fa-sun"></i>
+  </div>
+</header>
+
+
+<script>
+  const menuIcon = document.getElementById('menu-icon');
+  const navLinks = document.getElementById('nav-links');
+
+  menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+ 
+
+
+  <div id="weather-container">
+    <div class="container reversed">
+      <div class="box" id="clock-box">
+        <div id="clock">--:--:--</div>
+      </div>
+
+      <div class="box" id="weather-box">
+        <p id="weather-message">
+          <span class="greeting">Loading...</span><br>
+          <span class="temperature-detail"></span>
+        </p>
+        <div id="temp-toggle">
+          <button class="temp-btn active" data-unit="metric">°Celsius</button>
+          <button class="temp-btn" data-unit="imperial">°Fahrenheit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="image-gallery">
+    <img id="main-image" src="images/image-1.jpg" alt="Main Image" class="main-image" />
+    <div class="thumbnails">
+      <div class="thumb-box"><img src="images/image-1.jpg" onclick="changeImage(this)" /></div>
+      <div class="thumb-box"><img src="images/image-2.jpg" onclick="changeImage(this)" /></div>
+      <div class="thumb-box"><img src="images/image-3.jpeg" onclick="changeImage(this)" /></div>
+    </div>
+  </div>
+
+
+
+
+ 
+  <script src="script.js"></script>
+
+
+
+  <hr style="width: 100%; height: 20px;
+  color: blueviolet">
+
+<div class="background-box">
+  <h2>About Us</h2>
+
+  <br><br> <!-- سطرين فاضيين -->
+
+  <p>
+
+We are a dedicated team committed to providing high-quality, accessible IT courses that equip learners with real-world skills. Whether you're a beginner or advancing your career, our goal is to make tech education practical, engaging, and impactful.
+
+</p>
+
+  <br><br> <!-- سطرين فاضيين -->
+
+  <button>Read More
+</button>
+</div>
+
+ <h1 class="titleh"> Our Top Courses</h1>
+
+
+<div class="filters">
+  <button data-filter="all">All</button>
+  <button data-filter="paid">Paid <span id="paid-count">(6)</span></button>
+  <button data-filter="free">Free <span id="free-count">(2)</span></button>
+</div>
+
+  <div class="cards-container">
+    <!-- 8 Cards -->
+    <div class="card" data-type="free">
+      <div class="card-top">
+        <img src="images/Cloud.jpg" alt="course">
+      </div>
+      <div class="card-bottom">
+        <h3>Cloud Computing</h3>
+        <p>Price</p>
+        <p class="price">$150.90</p>
+        <span class="card-number">#1</span>
+      </div>
+    </div>
+
+    <div class="card" data-type="paid">
+      <div class="card-top">
+        <img src="images/cybersecurity.webp" alt="course">
+      </div>
+      <div class="card-bottom">
+        <h3>Cyber security</h3>
+        <p>Price</p>
+        <p class="price">$180.50</p>
+        <span class="card-number">#2</span>
+      </div>
+    </div>
+
+    <div class="card" data-type="paid">
+      <div class="card-top">
+        <img src="images/data-science.jpeg" alt="course">
+      </div>
+      <div class="card-bottom">
+        <h3>Data science</h3>
+        <p>Price</p>
+        <p class="price">Free</p>
+        <span class="card-number">#3</span>
+      </div>
+    </div>
+
+    <div class="card" data-type="paid">
+      <div class="card-top">
+        <img src="images/Technical-support.jpg" alt="course">
+      </div>
+      <div class="card-bottom">
+        <h3>Technical support</h3>
+        <p>Price</p>
+        <p class="price">$140.90</p>
+        <span class="card-number">#4</span>
+      </div>
+    </div>
+
+    <div class="card" data-type="free">
+      <div class="card-top">
+        <img src="images/web-design.jpeg" alt="course">
+      </div>
+      <div class="card-bottom">
+        <h3>web design</h3>
+        <p>Price</p>
+        <p class="price">Free</p>
+        <span class="card-number">#5</span>
+      </div>
+    </div>
+
+    <div class="card" data-type="paid">
+      <div class="card-top">
+        <img src="images/full-stack.jpg" alt="course">
+      </div>
+      <div class="card-bottom">
+        <h3>full stack developer</h3>
+        <p>Price</p>
+        <p class="price">$250.90</p>
+        <span class="card-number">#6</span>
+      </div>
+    </div>
+
+    <div class="card" data-type="paid">
+      <div class="card-top">
+        <img src="images/devOps.jpg" alt="course">
+      </div>
+      <div class="card-bottom">
+        <h3>devOps</h3>
+        <p>Price</p>
+        <p class="price">$200.99</p>
+        <span class="card-number">#7</span>
+      </div>
+    </div>
+
+    <div class="card" data-type="paid">
+      <div class="card-top">
+        <img src="images/CCNA.jpeg" alt="course">
+      </div>
+      <div class="card-bottom">
+        <h3>CCNA</h3>
+        <p>Price</p>
+        <p class="price">$220.60</p>
+        <span class="card-number">#8</span>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

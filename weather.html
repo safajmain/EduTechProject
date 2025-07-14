@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>طقس ووقت عمّان</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+      width: 700px;
+      max-width: 100%;
+    }
+    .box {
+      flex: 1;
+      padding: 20px;
+      border: 2px solid #007acc;
+      border-radius: 8px;
+      background-color: #e6f2ff;
+      min-width: 200px;
+      text-align: center;
+      color: #004080;
+    }
+    #weather-message {
+      font-size: 22px;
+      margin: 0;
+    }
+    #clock {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box" id="weather-box">
+      <p id="weather-message">جاري تحميل الطقس...</p>
+    </div>
+    <div class="box" id="middle-box">
+      <!-- هنا ممكن تضيفي صورة أو معلومة لاحقاً -->
+    </div>
+    <div class="box" id="clock-box">
+      <div id="clock"></div>
+    </div>
+  </div>
+
+  <script>
+    const apiKey = "5eac98e548b2475894807cd656533b63"; // غيّري المفتاح لمفتاحك الصحيح إذا لزم الأمر
+    const city = "Amman";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=ar&appid=${apiKey}`;
+
+    function getGreeting(hour) {
+      return (hour >= 6 && hour < 18) ? "صباح الخير" : "مساء الخير";
+    }
+
+    async function loadWeather() {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const temp = Math.round(data.main.temp);
+
+        const now = new Date();
+        const jordanHour = now.toLocaleString("en-US", { timeZone: "Asia/Amman", hour: '2-digit', hour12: false });
+        const greeting = getGreeting(parseInt(jordanHour));
+
+        document.getElementById("weather-message").textContent =
+          `${greeting}، درجة الحرارة الآن في عمّان: ${temp}°C`;
+      } catch (error) {
+        document.getElementById("weather-message").textContent = "حدث خطأ أثناء تحميل الطقس.";
+        console.error("خطأ في جلب الطقس:", error);
+      }
+    }
+
+    function startClock() {
+      setInterval(() => {
+        const now = new Date();
+        const options = {
+          timeZone: "Asia/Amman",
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        };
+        const jordanTime = now.toLocaleTimeString('ar-JO', options);
+        document.getElementById("clock").textContent = `الساعة الآن: ${jordanTime}`;
+      }, 1000);
+    }
+
+    loadWeather();
+    startClock();
+  </script>
+</body>
+</html>

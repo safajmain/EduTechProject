@@ -1,0 +1,462 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #004080;
+  direction: ltr;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007BFF;
+}
+
+.icon i {
+  font-size: 28px;
+  color: #555;
+  cursor: pointer;
+}
+ 
+
+
+    /* الشحطات */
+    .menu-icon {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* للموبايل */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: white;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+    }
+
+
+
+    /* تخفي الأيقونة داخل القائمة على اللابتوب */
+.mobile-icon {
+  display: none;
+}
+
+/* تخفي الأيقونة الخارجية على الموبايل */
+.desktop-icon {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobile-icon {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .desktop-icon {
+    display: none;
+  }
+}
+
+ 
+ 
+/* محتوى الطقس والساعة */
+#weather-container {
+  max-width: 700px;
+  margin: 90px auto 20px;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container.reversed {
+  flex-direction: row-reverse;
+}
+
+.box {
+  flex: 1;
+  padding: 20px;
+  border: 2px solid #cc0000;
+  border-radius: 8px;
+  min-width: 400px;
+  text-align: left;
+  color: #004080;
+  box-sizing: border-box;
+}
+
+#weather-message {
+  font-size: 20px;
+  margin-bottom: 15px;
+  min-height: 60px;
+  text-align: left;
+}
+
+.greeting {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.temperature-detail {
+  font-size: 16px;
+}
+
+#clock {
+  font-size: 22px;
+  background-color: #9718187a;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #007acc;
+  user-select: none;
+}
+
+#temp-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.temp-btn {
+  padding: 8px 25px;
+  border: 2px solid #007acc;
+  border-radius: 6px;
+  background-color: white;
+  color: #007acc;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  user-select: none;
+}
+
+.temp-btn:hover {
+  background-color: #cce5ff;
+}
+
+.temp-btn.active {
+  background-color: hsl(171, 63%, 51%);
+  color: white;
+  border-color: #28a745;
+}
+
+/* محتوى الصفحة */
+.content {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+/* الصورة الكبيرة والمعرض */
+.image-gallery {
+  max-width: 100%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.main-image {
+  width: 100%;
+  max-height: 600px;
+  object-fit: fill;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.thumb-box {
+  width: 120px;
+  height: 80px;
+  border: 2px solid #00cc1b;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.thumb-box:hover {
+  transform: scale(1.05);
+}
+
+.thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+.container {
+  flex-direction: column-reverse !important;
+  gap: 15px;
+  align-items: stretch;
+}
+
+  .box {
+    min-width: 100%;
+     text-align: left;
+  }
+
+  #weather-container {
+    max-width: 100%;
+    margin: 90px auto 20px;
+    padding: 10px;
+  }
+
+  #weather-message {
+    font-size: 18px;
+    text-align:  left;  
+  }
+
+  .greeting {
+    font-size: 20px;
+  }
+
+  .temperature-detail {
+    font-size: 14px;
+  }
+
+  #clock {
+    font-size: 20px;
+    padding: 12px;
+  }
+
+  #temp-toggle {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .temp-btn {
+    padding: 10px;
+    width: 100%;
+  }
+}
+
+
+
+/*image about */
+/* الصندوق الخلفي مع صورة وضبابية */
+.background-box {
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  text-align: center;
+  color: #000;
+  border-radius: 10px;
+  margin: 30px auto;
+  width: 100%;         /* ⭐ العرض الكامل */
+  max-width: 100%;     /* ⭐ كامل الشاشة */
+  height: 500px;
+  z-index: 1;
+}
+
+/* صورة الخلفية + الضبابية */
+.background-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('images/about-us.jpeg'); /* ⭐ صورة الخلفية */
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);       /* ⭐ مستوى الضبابية: قللتها لـ 3px */
+  opacity: 0.8;            /* ⭐ شفافية الصورة */
+  z-index: -2;
+}
+
+/* طبقة بيضاء شفافة فوق الصورة */
+.background-box::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* ⭐ شفافية اللون الأبيض */
+  z-index: -1;
+}
+
+/* العنوان */
+.background-box h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+/* الفقرة */
+.background-box p {
+  font-size: 18px;
+  max-width: 35%;        /* ⭐ يقلل عرض الفقرة */
+  margin: 0 auto;        /* ⭐ لتوسيطها */
+  text-align: center;    /* ⭐ النص في وسط الفقرة */
+  line-height: 1.8;      /* ⭐ مسافة بين السطور */
+  word-break: break-word;
+}
+
+
+/* الزر */
+.background-box button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color:hsl(171, 63%, 51%);
+  border: none;
+  border-radius: 25px;
+  color: #000;
+  cursor: pointer;
+}
+
+.background-box button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .background-box p {
+    font-size: 16px;
+    max-width: 90%;      /* ⭐ تقليل عرض الفقرة */
+    margin: 0 auto;      /* ⭐ لتوسيط الفقرة */
+    text-align: center;  /* ⭐ تنسيق للنص */
+    line-height: 1.8;    /* ⭐ زيادة المسافة بين الأسطر */
+  }
+
+  .background-box h2 {
+    font-size: 28px;
+  }
+
+  .background-box {
+    height: auto;
+    padding: 30px 20px;
+  }
+}
+
+
+.titleh{
+margin: auto; 
+padding: 40px;
+ text-align: center; 
+ font-size: 7vh;
+  color: black;
+
+}
+
+
+
+
+ .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* عرض كل كارد 30% لأول سطر وثاني سطر (3 كروت في الصف) */
+.card {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+  width: 30%;
+  min-width: 250px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* ثالث سطر: 2 كارد، عرض أكبر (45% لكل واحد تقريبًا) */
+.card:nth-child(n+7) {
+  width: 45%;
+}
+
+.card-top img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-bottom {
+  padding: 15px;
+}
+
+.card-bottom h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.card-bottom p {
+  margin: 4px 0;
+  font-size: 16px;
+}
+
+.price {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.card-number {
+  display: inline-block;
+  margin-left: 8px;
+  font-weight: bold;
+  color: #007BFF;
+}
